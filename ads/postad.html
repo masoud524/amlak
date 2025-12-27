@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت آگهی ملک</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-6 bg-white shadow rounded-xl mt-8 space-y-6">
+        <!-- سربرگ -->
+        <div class="flex items-center justify-between bg-white p-4 border-b">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                    <img src="../assets/png/back.png" alt="back icon" class="w-6">
+                </button>
+                <div>
+                <p class="text-lg">ثبت آگهی</p>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800 border-b pb-2">مشخصات کلی</h2>
+
+        <!-- نوع ملک -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">نوع ملک</label>
+            <select class="w-full border rounded-lg py-3 px-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-colors duration-200 bg-gray-50 text-gray-700 font-bold shadow-sm hover:border-blue-500 hover:bg-white">
+                <option class="py-2 mt-2">آپارتمان</option>
+                <option class="py-2 mt-2">خانه ویلایی</option>
+                <option class="py-2 mt-2">زمین</option>
+                <option class="py-2 mt-2">مغازه</option>
+            </select>
+        </div>
+
+        <!-- دسته‌بندی ملک -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">دسته‌بندی ملک</label>
+            <select class="w-full border rounded-lg py-3 px-2 text-sm focus:outline-none focus:ring focus:border-blue-400">
+                <option>فروش</option>
+                <option>رهن کامل</option>
+                <option>اجاره</option>
+                <option>پیش‌فروش</option>
+            </select>
+        </div>
+
+        <!-- محدوده ملک -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">محدوده ملک</label>
+            <input type="text" placeholder="مثلاً سعادت‌آباد، تهران"
+                class="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
+            <p class="text-red-500 text-xs mt-1">این فیلد اجباری است</p>
+        </div>
+        <!-- آگهی‌دهنده -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">نام آگهی‌دهنده</label>
+            <input type="text" placeholder="مثلاً علی رضایی" class="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
+        </div>
+
+        <!-- مبلغ -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">مبلغ (تومان)</label>
+            <input type="text" placeholder="مثلاً 3500000000" oninput="formatPrice(this)" oninput="formatPrice(this)"
+                class="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
+        </div>
+
+        <!-- عنوان آگهی -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">عنوان آگهی</label>
+            <input type="text" placeholder="مثلاً فروش آپارتمان 120 متری نوساز"
+                class="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
+        </div>
+
+        <!-- توضیحات -->
+        <div>
+            <label class="block mb-1 text-sm font-medium text-gray-700">توضیحات</label>
+            <textarea rows="4" placeholder="توضیحات کامل ملک شامل امکانات، سن بنا، شرایط فروش و..." class="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring focus:border-blue-400"></textarea>
+        </div>
+
+        <!-- دکمه ثبت -->
+        <div class="grid grid-cols-2 gap-6">
+            <button class="bg-[var(--bg-primary-color)] text-white hover:bg-gray-600 text-gray-800 font-medium px-6 py-2 rounded-lg transition">
+            بعدی
+            </button>
+            <button class="bg-[var(--bg-primary-color)] hover:bg-gray-600 text-white font-medium px-6 py-2 rounded-lg transition">
+            ثبت آگهی
+            </button>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="../assets/js/main.js"></script>
+</footer>
+</html>

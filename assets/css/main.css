@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'IranianMedium';
+  src: url('/assets/font/IRANSans.woff2') format('woff2'),
+       url('/assets/font/IRANSans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* برای بهبود لود اولیه */
+}
+
+html {
+  font-family: 'IranianMedium', sans-serif;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* برای اطمینان از سازگاری با همه عناصر */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color);
+  background: var(--background-color, #fff); /* در صورت نیاز */
+}
+
+:root{
+  --bg-primary-color: #2e8b57;
+  --color: #000000;
+  --border-color: #dedede;
+  --placeholder-color: #dedede;
+  --lgreen: #747c78;
+  --peding: #d9dbdb;
+}
+
+
+.primary-bg-color{
+  background-color: var(--bg-primary-color);
+}
+
+.center-with-text-align{
+  text-align: center;
+}
+
+.center-with-margin{
+  margin: auto;
+}
+
+.center-with-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-radius-5px{
+  border-radius: 5px;
+}
+
+.max-width-400px{
+  max-width: 400px;
+}
+
+.input{
+  height: 40px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--border-color);
+  padding: 1px 8px;
+  min-width: 150px;
+}
+
+.btn{
+  background-color: var(--bg-primary-color);
+  color: #ffffff;
+  padding: 12px 0 16px 0;
+  border: none;
+  border-radius: 9px;
+  min-width: 151.4px;
+  cursor: pointer;
+}
+
+/*زمانی که نیاز داریم دکمه درصورت Disabled شدن حالت انتظار را نشان دهد کلاس زیر را به آن اعمال می کنیم.*/
+.smart-btn {
+  position: relative;
+}
+
+.smart-btn:disabled {
+  color: var(--bg-primary-color); /* مخفی کردن متن */
+  cursor: not-allowed;
+}
+
+.smart-btn:disabled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: btn-spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+/*Applicant Advertisement Registration = aar*/
+.aar-general-specifications{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 5px;
+  padding: 14px 0px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aar-price-el{
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aar-price{
+  margin: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.aar-p-input{
+
+}
+
+.aar-p-dash{
+
+}
+
+
+@keyframes btn-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

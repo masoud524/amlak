@@ -1,0 +1,25 @@
+        
+        <!-- امکانات پاپ‌آپ شناور رد ان -->
+        <div id="rad-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">توجه!!</span>
+            <button onclick="togglePopup('rad-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex text-sm flex-col gap-3 text-right">
+                <!-- آیتم 1 -->
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">شما قادر به انتشار این اگهی نیستید</span>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">برای انتشار این اگهی باید اگهی های قبلی امتیاز 8 داشته باشند</span>
+                </label>
+            </div>
+            <div class="flex gap-6 justify-between">
+                <button onclick="togglePopup('rad-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    مشاهده آگهی ها
+                </button>
+                <button onclick="togglePopup('rad-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    ذخیره آگهی
+                </button>
+            </div>
+        </div>

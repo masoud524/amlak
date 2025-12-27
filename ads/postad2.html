@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت آگهی ملک 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-6 bg-white shadow rounded-xl mt-8 space-y-6">
+        <!-- سربرگ -->
+        <div class="flex items-center justify-between bg-white p-4 border-b">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                    <img src="../assets/png/back.png" alt="back icon" class="w-6">
+                </button>
+                <div>
+                <p class="text-lg">ثبت آگهی</p>
+                </div>
+            </div>
+        </div>
+        <!-- بخش عکس ملک 4 ستونه -->
+        <div class="mb-6">
+            <label class="block mb-1 text-gray-700 text-md font-semibold">عکس ملک</label>
+            <div id="video-upload-row" class="grid grid-cols-4 gap-4">
+                <div class="flex flex-col items-center">
+                    <label class="cursor-pointer flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg h-24 w-full hover:border-blue-400 transition">
+                        <span class="text-gray-400 text-2xl">
+                            <img src="../assets/png/upload01.png" alt="">
+                        </span>
+                        <input type="file" class="hidden" accept=".mp4,.webm,.ogg,.avi,.mkv,.mov,.flv,.wmv,.3gp,.mpeg,.mpg,.m4v,.ts,.mts,.m2ts,.vob,.divx,.xvid,.rm,.rmvb,.asf,.mxf,.f4v,.mpe,.mpv,.mp2,.dat,.dv,.mod,.tod,.qt,.ogv,.h264,.h265,.hevc,video/*" id="video-upload-input">
+                    </label>
+                    <span class="mt-2 text-xs text-gray-500">افزودن ویدیو</span>
+                </div>
+            </div>
+
+            <div id="image-upload-row" class="grid grid-cols-4 gap-4">
+                <div class="flex flex-col items-center mt-8">
+                    <label class="cursor-pointer flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg h-24 w-full hover:border-blue-400 transition">
+                        <span class="text-gray-400 text-2xl">
+                            <img src="../assets/png/uploads02.png" alt="">
+                        </span>
+                        <input type="file" class="hidden" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.svg,.tiff,.ico,.jfif,.pjpeg,.pjp" id="image-upload-input">
+                    </label>
+                    <span class="mt-2 text-xs text-gray-500">افزودن عکس</span>
+                </div>
+            </div>
+        </div>
+        <!-- ویژگی ملک -->
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+            <!-- جهت ساختمان -->
+            <label class="mb-1 font-semibold text-md text-gray-700">ویژگی ها</label>
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">جهت ساختمان</label>
+                <select class="border text-md rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 text-md space-x-2 rtl:space-x-reverse">
+                    <option class="py-2">شمالی</option>
+                    <option class="py-2">جنوبی</option>
+                    <option class="py-2">شرقی</option>
+                    <option class="py-2">غربی</option>
+                </select>
+            </div>
+            <!-- گرمایش -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">گرمایش</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="پکیج">پکیج</option>
+                    <option value="شوفاژ">شوفاژ</option>
+                    <option value="بخاری گازی">بخاری گازی</option>
+                    <option value="گرمایش از کف">گرمایش از کف</option>
+                    <option value="هیچکدام">هیچکدام</option>
+                </select>
+            </div>
+            <!-- سرمایش -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">سرمایش</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="کولر آبی">کولر آبی</option>
+                    <option value="کولر گازی">کولر گازی</option>
+                    <option value="پنکه">پنکه</option>
+                    <option value="هیچکدام">هیچکدام</option>
+                </select>
+            </div>
+            <!-- جنس کف -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">جنس کف</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="سرامیک">سرامیک</option>
+                    <option value="پارکت">پارکت</option>
+                    <option value="موکت">موکت</option>
+                    <option value="سنگ">سنگ</option>
+                    <option value="لمینت">لمینت</option>
+                </select>
+            </div>
+            <!-- سرویس بهداشتی -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">سرویس بهداشتی</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="ایرانی">ایرانی</option>
+                    <option value="فرنگی">فرنگی</option>
+                    <option value="ایرانی و فرنگی">ایرانی و فرنگی</option>
+                </select>
+            </div>
+            <!-- تامین کننده آب گرم -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">تامین کننده آب گرم</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="آبگرمکن">آبگرمکن</option>
+                    <option value="پکیج">پکیج</option>
+                    <option value="شوفاژ">شوفاژ</option>
+                    <option value="هیچکدام">هیچکدام</option>
+                </select>
+            </div>
+            <!-- تعداد اتاق -->
+            <div class="flex justify-between">
+                <label class="mb-1 text-gray-700">تعداد اتاق</label>
+                <select class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">انتخاب کنید</option>
+                    <option value="1">۱</option>
+                    <option value="2">۲</option>
+                    <option value="3">۳</option>
+                    <option value="4">۴</option>
+                    <option value="5">۵</option>
+                    <option value="6">۶</option>
+                    <option value="7">۷</option>
+                    <option value="8">۸</option>
+                    <option value="9">۹</option>
+                    <option value="10">۱۰+</option>
+                </select>
+            </div>
+        </div>
+        <!-- دکمه ثبت -->
+        <div class="grid grid-cols-2 gap-6">
+            <button class="bg-[var(--bg-primary-color)] text-white hover:bg-gray-600 text-gray-800 font-medium px-6 py-2 rounded-lg transition">
+            بعدی
+            </button>
+            <button class="bg-[var(--bg-primary-color)] hover:bg-gray-600 text-white font-medium px-6 py-2 rounded-lg transition">
+            ثبت آگهی
+            </button>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="/assets/js/main.js"></script>
+<script>
+//اپلود ویدیو
+const videoUploadRow = document.getElementById('video-upload-row');
+const videoUploadInput = document.getElementById('video-upload-input');
+
+function handleVideoUpload(e) {
+    if (e.target && e.target.files.length > 0) {
+        const file = e.target.files[0];
+
+        if (file.size > 50 * 1024 * 1024) { // محدودیت ۵۰ مگابایت
+            alert("حداکثر حجم فایل ویدیو ۵۰ مگابایت است.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            const box = document.createElement('div');
+            box.className = "flex flex-col items-center relative";
+
+            box.innerHTML = `
+                <div class="flex flex-col items-center">
+                    <label class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg h-24 w-full cursor-pointer opacity-70">
+                        <span class="text-gray-400 text-2xl w-full">
+                            <video src="${ev.target.result}" controls class="h-20 w-full object-cover rounded"></video>
+                        </span>
+                        <input type="file" class="hidden" disabled>
+                    </label>
+                    <button class="mt-1 text-red-500 text-xs hover:underline" onclick="this.closest('.flex').remove()">حذف</button>
+                </div>
+            `;
+
+            videoUploadRow.appendChild(box);
+        };
+
+        reader.readAsDataURL(file);
+
+        // ریست input برای انتخاب مجدد
+        e.target.value = "";
+    }
+}
+
+videoUploadInput.addEventListener('change', handleVideoUpload);
+
+//اپلود عکس
+const uploadRow = document.getElementById('image-upload-row');
+const uploadInput = document.getElementById('image-upload-input');
+
+function handleImageUpload(e) {
+    if (e.target && e.target.files.length > 0) {
+        const file = e.target.files[0];
+
+        if (file.size > 2 * 1024 * 1024) {
+            alert("حداکثر حجم فایل ۲ مگابایت است.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            const box = document.createElement('div');
+            box.className = "flex flex-col items-center relative";
+
+            box.innerHTML = `
+                <div class="flex flex-col items-center">
+                    <label class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg h-24 w-full cursor-pointer opacity-70">
+                        <span class="text-gray-400 text-2xl">
+                            <img src="${ev.target.result}" alt="uploaded" class="object-cover h-20 w-full rounded">
+                        </span>
+                        <input type="file" class="hidden" disabled>
+                    </label>
+                    <button class="mt-1 text-red-500 text-xs hover:underline" onclick="this.closest('.flex').remove()">حذف</button>
+                </div>
+            `;
+
+            uploadRow.appendChild(box);
+        };
+
+        reader.readAsDataURL(file);
+
+        // ریست کردن input برای انتخاب مجدد
+        e.target.value = "";
+    }
+}
+
+uploadInput.addEventListener('change', handleImageUpload);
+</script>
+
+</footer>
+</html>

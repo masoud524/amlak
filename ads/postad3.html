@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت آگهی ملک 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div id="overlay" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden"></div>
+    <div class="max-w-3xl mx-auto p-6 bg-white shadow rounded-xl mt-8 space-y-6">
+        <!-- سربرگ -->
+        <div class="flex items-center justify-between bg-white border-b ">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                    <img src="../assets/png/back.png" alt="back icon" class="w-6">
+                </button>
+                <div>
+                <p class="text-md">ثبت آگهی</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-3xl text-sm mx-auto p-4 gap-4 text-right">
+            <!-- مساحت و سال ساخت (در یک خط ریسپانسیو) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block mb-1">متراژ</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="متراژ">
+                </div>
+                <div>
+                    <label class="block mb-1">سال ساخت</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="مثلاً 1395">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                <!-- تعداد کل طبقات -->
+                <div>
+                    <label class="block mb-1">تعداد کل طبقات</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="کل طبقات">
+                </div>
+                <!-- طبقه ملک -->
+                <div>
+                    <label class="block mb-1">طبقه ملک</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="طبقه ملک">
+                </div>
+                <!-- تعداد واحد در طبقه -->
+                <div>
+                    <label class="block mb-1">تعداد واحد در طبقه</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="واحد در طبقه">
+                </div>
+            </div>
+
+            <!-- نوع سند -->
+            <div onclick="togglePopup('type-popup', true)" class="flex mt-4 mb-5">
+                <label class="bg-blue-200 hover:bg-blue-400 rounded-lg py-2 px-2 mb-5 cursor-pointer">نوع سند</label>
+                <div id="sanadtype" class="px-3">
+                    
+                </div>
+            </div>
+
+            <!-- تعداد اتاق -->
+            <div onclick="togglePopup('room-popup', true)" class="flex mb-5">
+                <label class="bg-blue-200 hover:bg-blue-400 rounded-lg py-2 px-2 mb-5 cursor-pointer">تعداد اتاق</label>
+                <div id="room-data" class="px-3">
+
+                </div>
+            </div>
+
+            <!-- امکانات -->
+            <div onclick="togglePopup('amenities-popup', true)" class="flex">
+                <label class="bg-blue-200 hover:bg-blue-400  rounded-lg py-2 px-2 mb-5 cursor-pointer">امکانات</label>
+                <div id="amenities-data" class="px-3">
+                    
+                </div>
+            </div>
+
+            <!-- اجاره کوتاه مدت -->
+            <div class="md:col-span-2 mt-4">
+                <label class="block mb-2">اجاره کوتاه مدت</label>
+                <label class="block mb-2">اجاره(تومان-هرشب)</label>
+                <input type="text" class="w-full border rounded px-3 py-2" required oninput="formatPrice(this)" placeholder="مبلغ">
+            </div>
+
+            <!-- تعداد نفرات -->
+            <div class="mt-4">
+                <label class="block">تعداد نفرات</label>
+                <div class="flex flex-col sm:flex-row gap-2 items-center">
+                    <input type="number" class="border rounded px-3 py-2 w-full sm:w-auto flex-1" placeholder="حداقل">
+                    <span class="mx-2">تا</span>
+                    <input type="number" class="border rounded px-3 py-2 w-full sm:w-auto flex-1" placeholder="حداکثر">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                <!-- رمز رایانه برق -->
+                <div>
+                    <label class="block mb-1">رمز رایانه برق</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="رمز رایانه">
+                </div>
+                <!-- شناسه قبض گاز -->
+                <div>
+                    <label class="block mb-1">شناسه قبض گاز</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="شناسه قبض">
+                </div>
+                <!-- شناسه قبض آب -->
+                <div>
+                    <label class="block mb-1">شناسه قبض آب</label>
+                    <input type="text" class="w-full border rounded px-3 py-2" placeholder="شناسه قبض">
+                </div>
+            </div>
+        </div>
+        <!-- دکمه ثبت -->
+        <div class="grid grid-cols-1 gap-6">
+            <button onclick="togglePopup('send-popup', true)" class="bg-[var(--bg-primary-color)] hover:bg-gray-600 text-white font-medium px-6 py-2 rounded-lg transition">
+            ثبت آگهی
+            </button>
+        </div>
+        <!-- امکانات پاپ‌آپ شناور تعداد اتاق -->
+        <div id="room-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">انتخاب تعداد اتاق</span>
+            <button onclick="togglePopup('room-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex flex-col gap-3">
+            <button onclick="selectRoom('بدون خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">بدون خواب</button>
+            <button onclick="selectRoom('۱ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">۱ خواب</button>
+            <button onclick="selectRoom('۲ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">۲ خواب</button>
+            <button onclick="selectRoom('۳ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">۳ خواب</button>
+            <button onclick="selectRoom('۴ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">۴ خواب</button>
+            <button onclick="selectRoom('۵ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">۵ خواب</button>
+            <button onclick="selectRoom('بیشتر از ۵ خواب')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">بیشتر از ۵ خواب</button>
+            </div>
+            <button onclick="confirmRoom()" class="w-full bg-[var(--bg-primary-color)] text-white py-2 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">تایید</button>
+        </div>
+
+        <!-- امکانات پاپ‌آپ شناور -->
+        <div id="amenities-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">انتخاب امکانات</span>
+            <button onclick="togglePopup('amenities-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <!-- پرطرفدار -->
+            <div class="mb-4">
+            <div class="font-semibold mb-2">پرطرفدار</div>
+            <div class="flex flex-wrap gap-2">
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">بالکن</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">تهویه مرکزی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">حیوانات خانگی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">اتاق سرایدار</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">ویو دریا</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">استخر</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm cursor-pointer hover:bg-blue-200 hover:text-black">بازسازی شده</span>
+            </div>
+            </div>
+            <!-- عمومی -->
+            <div class="mb-4">
+            <div class="font-semibold mb-2">عمومی</div>
+            <div class="flex flex-wrap gap-2">
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">سالن ورزشی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">سالن مطالعه</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">سالن اجتماعات</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">اینترنت</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">پارکینگ سرپوشیده</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">آسانسور</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">نگهبان</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">لابی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">لابی می</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">فضای باز کودکان</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm cursor-pointer hover:bg-green-200 hover:text-black">پارگینگ</span>
+            </div>
+            </div>
+            <!-- خصوصی -->
+            <div class="mb-4">
+            <div class="font-semibold mb-2">خصوصی</div>
+            <div class="flex flex-wrap gap-2">
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm cursor-pointer hover:bg-purple-200 hover:text-black">ویو شهری</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm cursor-pointer hover:bg-purple-200 hover:text-black">ویو جنگلی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm cursor-pointer hover:bg-purple-200 hover:text-black">سالن ورزشی</span>
+                <span onclick="toggleAmenity(this)" class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm cursor-pointer hover:bg-purple-200 hover:text-black">انباری</span>
+            </div>
+            </div>
+            <button onclick="confirmAmenities()" class="w-full bg-[var(--bg-primary-color)] text-white py-2 rounded-lg font-semibold mt-2 hover:bg-gray-600 transition">تایید</button>
+        </div>
+
+        <!-- امکانات پاپ‌آپ شناور نوع سند (دکمه‌ای) -->
+        <div id="type-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-lg">انتخاب نوع سند</span>
+                <button onclick="togglePopup('type-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex flex-col gap-3">
+                <button onclick="toggleType(this, 'تک برگ')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">تک برگ</button>
+                <button onclick="toggleType(this, 'منگوله دار')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">منگوله دار</button>
+                <button onclick="toggleType(this, 'قولنامه')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">قولنامه</button>
+                <button onclick="toggleType(this, 'سرقفلی')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">سرقفلی</button>
+                <button onclick="toggleType(this, 'سایر')" class="w-full text-right px-4 py-2 rounded-lg bg-blue-100 text-blue-700 text-base hover:bg-blue-200 hover:text-black transition">سایر</button>
+            </div>
+            <button onclick="confirmType()" class="w-full bg-[var(--bg-primary-color)] text-white py-2 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">تایید</button>
+        </div>
+
+        <script>
+        //نوع سند
+        let typeSelected = [];
+        function toggleType(btn, value) {
+            if (typeSelected.includes(value)) {
+                typeSelected = typeSelected.filter(v => v !== value);
+                btn.classList.remove('bg-blue-500', 'text-white');
+            } else {
+                // فقط یک گزینه انتخاب شود
+                // همه دکمه‌ها را غیر فعال کن
+                const buttons = document.querySelectorAll('#type-popup .flex-col button');
+                buttons.forEach(b => b.classList.remove('bg-blue-500', 'text-white'));
+                typeSelected = [value];
+                btn.classList.add('bg-blue-500', 'text-white');
+            }
+        }
+        function confirmType() {
+            const html = typeSelected.map(txt => `<span class="inline-block bg-blue-300 rounded rounded-lg px-2 py-1 mx-1 cursor-pointer">${txt}</span>`).join('');
+            document.getElementById('sanadtype').innerHTML = html;
+            togglePopup('type-popup', false);
+        }
+
+        // تعداد اتاق
+        let selectedRoom = '';
+        function selectRoom(room) {
+            selectedRoom = room;
+            // Highlight selected button
+            const buttons = document.querySelectorAll('#room-popup .flex-col button');
+            buttons.forEach(btn => {
+            if (btn.textContent.trim() === room) {
+                btn.classList.add('bg-gray-500', 'text-white');
+            } else {
+                btn.classList.remove('bg-gray-500', 'text-white');
+            }
+            });
+        }
+        function confirmRoom() {
+            if (selectedRoom) {
+            // نمایش انتخاب شده در یک محل مناسب (مثلاً یک div با id="room-data")
+            let roomData = document.getElementById('room-data');
+            if (!roomData) {
+                roomData = document.createElement('div');
+                roomData.id = 'room-data';
+                document.querySelector('[onclick*="room-popup"]').appendChild(roomData);
+            }
+            roomData.innerHTML = `<span class="inline-block bg-gray-400 text-black rounded rounded-lg rounded-lg px-2 py-1 mx-1 cursor-pointer">${selectedRoom}</span>`;
+            }
+            togglePopup('room-popup', false);
+        }
+
+        // امکانات
+        let amenitiesSelected = [];
+        function toggleAmenity(el) {
+            const value = el.textContent.trim();
+            if (el.classList.contains('bg-blue-500') || el.classList.contains('bg-green-500') || el.classList.contains('bg-purple-500')) {
+            el.classList.remove('bg-blue-500', 'bg-green-500', 'bg-purple-500', 'text-white');
+            amenitiesSelected = amenitiesSelected.filter(a => a !== value);
+            } else {
+            el.classList.add(
+                el.classList.contains('bg-blue-100') ? 'bg-blue-500' :
+                el.classList.contains('bg-green-100') ? 'bg-green-500' :
+                'bg-purple-500',
+                'text-white'
+            );
+            amenitiesSelected.push(value);
+            }
+        }
+        function confirmAmenities() {
+            const html = amenitiesSelected.map(txt => `<span class="inline-block bg-green-300 text-black rounded rounded-lg px-2 py-1 mt-2 mx-1 cursor-pointer">${txt}</span>`).join('');
+            document.getElementById('amenities-data').innerHTML = html;
+            togglePopup('amenities-popup', false);
+        }
+        </script>
+
+        <!-- امکانات پاپ‌آپ شناور تایید ان -->
+        <div id="send-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">ایا مطمعن هستید؟</span>
+            <button onclick="togglePopup('send-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex text-sm flex-col gap-3 text-right">
+                <!-- آیتم 1 -->
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">امتیاز آگهی شما کم است</span>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">برای افزایش امتیاز و بازدید اطلاعات اگهی را تکمیل نمایید</span>
+                </label>
+            </div>
+            <div class="flex gap-6 justify-between">
+                <button onclick="togglePopup('send-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    ویرایش آگهی
+                </button>
+                <button onclick="togglePopup('send-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    تایید آگهی
+                </button>
+            </div>
+        </div>
+        
+        <!-- امکانات پاپ‌آپ شناور رد ان -->
+        <div id="rad-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">توجه!!</span>
+            <button onclick="togglePopup('rad-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex text-sm flex-col gap-3 text-right">
+                <!-- آیتم 1 -->
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">شما قادر به انتشار این اگهی نیستید</span>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">برای انتشار این اگهی باید اگهی های قبلی امتیاز 8 داشته باشند</span>
+                </label>
+            </div>
+            <div class="flex gap-6 justify-between">
+                <button onclick="togglePopup('rad-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    مشاهده آگهی ها
+                </button>
+                <button onclick="togglePopup('rad-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    ذخیره آگهی
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="../assets/js/main.js"></script>
+</footer>
+</html>

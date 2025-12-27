@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گفت گو</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-3xl mx-auto p-4 space-y-4">
+        <div class="max-w-4xl mx-auto h-screen flex flex-col bg-gray-50 border rounded-xl shadow">
+            <!-- سربرگ -->
+            <div class="flex items-center justify-between bg-white p-4 border-b">
+              <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                  <img src="../assets/png/back.png" alt="back icon" class="w-5">
+                </button>
+                <div>
+                  <h2 class="text-lg font-semibold">علی کریمی</h2>
+                  <p class="text-sm text-gray-500">شرکت: رایان تجارت</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4 rtl:space-x-reverse text-gray-500">
+                <button class="hover:text-red-500">
+                    <img src="../assets/png/pin.png" alt="back icon" class="w-5">
+                </button>
+                <button class="hover:text-green-500">
+                    <img src="../assets/png/saved.png" alt="back icon" class="w-5">
+                </button>
+              </div>
+            </div>
+          
+            <!-- بدنه گفتگو -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-100">
+              <!-- پیام طرف مقابل -->
+              <div class="flex items-start space-x-2 rtl:space-x-reverse">
+                <span class="text-xs self-end" style="margin-bottom: 2px;">
+                    <img src="../assets/png/seen.png" alt="back icon" class="">
+                </span>
+                <div class="bg-white p-3 rounded-xl shadow max-w-xs">
+                  <p class="text-sm text-gray-800">سلام، آگهی لپ‌تاپتون هنوز موجوده؟</p>
+                </div>
+              </div>
+          
+              <!-- پیام خود کاربر -->
+              <div class="flex items-end justify-end space-x-2 rtl:space-x-reverse">
+                <div class="bg-blue-500 text-white p-3 rounded-xl shadow max-w-xs">
+                  <p class="text-sm">سلام بله، هنوز موجوده</p>
+                </div>
+              </div>
+          
+              <!-- پیام تصویر -->
+              <div class="flex items-start space-x-2 rtl:space-x-reverse">
+                <span class="text-xs self-end" style="margin-bottom: 2px;">
+                  <img src="assets/png/send.jpg" alt="back icon" class="w-5">
+                </span>
+                <div class="bg-white p-2 rounded-xl shadow max-w-xs">
+                  <img src="https://markp.ir/storage/images/MKfNyxdWxZrnILuNRuUAdRv0pCv590J0o8lQUcxv.png" alt="pic" class="rounded">
+                </div>
+              </div>
+            </div>
+          
+            <!-- پابرگ -->
+            <div class="p-4 bg-white border-t flex items-center space-x-2 rtl:space-x-reverse">
+              <button class="text-gray-500 hover:text-blue-600 text-xl">
+                <img src="../assets/png/voice.png" alt="back icon" class="w-10">
+              </button>
+              <input
+                type="text"
+                placeholder="پیام خود را بنویسید..."
+                class="flex-1 border rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring focus:border-blue-300"
+              >
+              <button class="text-gray-500 hover:text-blue-600 text-xl">
+                <img src="../assets/png/file.png" alt="back icon" class="w-8">
+              </button>
+            </div>
+          </div>
+          
+        <!-- Add more chat items as needed -->
+        <!-- دکمه خروج شناور پایین صفحه -->
+        <div class="fixed bottom-6 left-0 right-0 flex justify-center z-50">
+            <button id="logoutBtn" onclick="togglePopup('exit-confirm-popup', true)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="font-semibold">خروج از حساب کاربری</span>
+            </button>
+        </div>
+
+        <!-- مودال تأیید خروج -->
+        <div id="exit-confirm-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex flex-col gap-3 text-right">
+                <p class="text-center text-md">آیا مایل به خروج از حساب کاربری خود هستید؟</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <button onclick="togglePopup('exit-confirm-popup', false)" class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">خیر</button>
+                <button class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">بله</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+  <script src="../assets/js/main.js"></script>
+</footer>
+</html>

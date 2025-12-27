@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت آگهی</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-3xl mx-auto p-4 space-y-4">
+        <div class="max-w-4xl mx-auto h-screen flex flex-col bg-gray-50 border rounded-xl shadow">
+            <!-- سربرگ -->
+            <div class="flex items-center justify-between bg-white p-4 border-b">
+              <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                  <img src="../assets/png/back.png" alt="back icon" class="w-5">
+                </button>
+                <div>
+                  <h2 class="text-md">مدیریت آگهی</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="max-w-3xl bg-gray-100 p-4 text-right space-y-2 overflow-y-auto">
+                <!-- آیتم‌های منو -->
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>منتشر شده</span>
+                    <span>20 اسفند</span>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>انقضا آگهی</span>
+                    <span>30اسفند(20روز)</span>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>پیش نمایش</span>
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>آمار بازدید</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>تایید</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>انصراف</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>ویرایش</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>غیر فعال</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>بایگانی و ثبت یادآوری</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>بروزرسانی</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>حذف</span>
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+            </div>
+        </div>
+        <!-- Add more chat items as needed -->
+        <!-- مودال تأیید خروج -->
+        <div id="exit-confirm-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex flex-col gap-3 text-right">
+                <p class="text-center text-md">آیا مایل به خروج از حساب کاربری خود هستید؟</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <button onclick="togglePopup('exit-confirm-popup', false)" class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">خیر</button>
+                <button class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">بله</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+  <script src="../assets/js/main.js"></script>
+</footer>
+</html>

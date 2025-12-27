@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت مشاور</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-3xl mx-auto p-4 space-y-4">
+        <div class="max-w-4xl mx-auto h-screen flex flex-col bg-gray-50 border rounded-xl shadow">
+            <!-- سربرگ -->
+            <div class="flex items-center justify-between bg-white p-4 border-b">
+              <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <div>
+                  <h2 class="text-md">ثبت مشاور</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="max-w-3xl bg-white rounded-2xl shadow-md m-6">
+
+                <!-- نام و نام خانوادگی -->
+                <div class="flex flex-row gap-4 items-start">
+                    <!-- ستون 3/4: نام و نام خانوادگی -->
+                    <div class="w-3/4">
+                        <h3 class="text-md mb-4 text-gray-800">مشخصات</h3>
+                        <input type="text" class="w-full placeholder-[var(--placeholder-color)] border border-gray-300 rounded-md shadow-sm py-2 px-4" placeholder="نام و نام خانوادگی">
+                    </div>
+
+                    <!-- ستون 1/4: آواتار و دکمه ویرایش -->
+                    <div class="w-1/4 flex flex-col items-center space-y-2">
+                        <h3 class="text-sm mb-1 text-gray-700">ویرایش آواتار</h3>
+                        <!-- تصویر آواتار -->
+                        <img src="../assets/png/profile.png" alt="آواتار" class="w-10 h-10 rounded-full object-cover border">
+                    </div>
+                </div>
+
+
+                <!-- شماره تماس -->
+                <div class="mt-6">
+                    <input type="tel" class="text-right border border-gray-300 rounded-md shadow-sm py-2 px-4 placeholder-[var(--placeholder-color)]" placeholder="شماره تماس">
+                </div>
+
+                <!-- آژانس -->
+                <div class="mt-6">
+                    <input type="text" class="border border-gray-300 rounded-md shadow-sm py-2 px-4 placeholder-[var(--placeholder-color)]" placeholder="مثلاً آژانس املاک تهران">
+                </div>
+
+                <!-- مدارک -->
+                <div class="mt-6">
+                    <label class="block text-gray-700 font-semibold mb-2">مدارک</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 justify-items-center">
+                        <!-- جعبه آپلود مدرک 1 -->
+                        <label class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition relative bg-gray-50 p-4">
+                            <img id="preview1" src="../assets/png/cardfile.png" alt="مدرک ۱" class="object-cover border rounded-md mb-2 w-full">
+                            <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="previewImage(this, 'preview1')" />
+                        </label>
+
+                        <!-- جعبه آپلود مدرک 2 -->
+                        <label class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition relative bg-gray-50 p-4">
+                            <img id="preview2" src="../assets/png/cardfile.png" alt="مدرک ۲" class="object-cover border rounded-md mb-2 w-full">
+                            <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="previewImage(this, 'preview2')" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- دکمه ثبت -->
+                <div class="text-right block pt-16 mt-16">
+                    <span class="text-red-700 lg:text-lg sm:text-sm px-6 ">با ثبت نام در هومسای شرایط و قوانین عضویت را می پذیرم.</span>
+                    <button class="bg-[var(--bg-primary-color)] text-[var(--color)] hover:bg-red-700 font-bold py-3 m-2 w-full rounded-md shadow">ثبت نام</button>
+                </div>
+            </div>
+        </div>
+        <!-- Add more chat items as needed -->
+    </div>
+</body>
+
+<script>
+  function previewImage(input, previewId) {
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      document.getElementById(previewId).src = e.target.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
+</html>

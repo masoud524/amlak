@@ -1,0 +1,25 @@
+
+        <!-- امکانات پاپ‌آپ شناور تایید ان -->
+        <div id="send-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-lg">ایا مطمعن هستید؟</span>
+            <button onclick="togglePopup('send-popup', false)" class="text-gray-400 hover:text-black text-4xl">&times;</button>
+            </div>
+            <div class="flex text-sm flex-col gap-3 text-right">
+                <!-- آیتم 1 -->
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">امتیاز آگهی شما کم است</span>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="">برای افزایش امتیاز و بازدید اطلاعات اگهی را تکمیل نمایید</span>
+                </label>
+            </div>
+            <div class="flex gap-6 justify-between">
+                <button onclick="togglePopup('send-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    ویرایش آگهی
+                </button>
+                <button onclick="togglePopup('send-popup', false)" class="bg-[var(--bg-primary-color)] text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-600 transition">
+                    تایید آگهی
+                </button>
+            </div>
+        </div>

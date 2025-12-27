@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب کاربری آژانس</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div id="overlay" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden"></div>
+    <div class="max-w-3xl mx-auto p-4 space-y-4">
+        <div class="max-w-4xl mx-auto h-screen flex flex-col bg-gray-50 border rounded-xl shadow">
+            <!-- سربرگ -->
+            <div class="flex items-center justify-between bg-white p-4 border-b">
+              <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <button class="text-gray-500 hover:text-black">
+                  <img src="../assets/png/back.png" alt="back icon" class="w-5">
+                </button>
+                <div>
+                  <h2 class="text-md">حساب کاربری آژانس</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="max-w-3xl bg-gray-100 p-4 text-right space-y-2 overflow-y-auto">
+                <!-- آیتم‌های منو -->
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>اطلاعات کاربری</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>چت های من</span>
+                    <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>مدیریت آگهی ها</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>مدیریت متقاضی ها</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>مدیریت آژانس ها و ارسال درخواست همکاری</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>دنبال کننده ها</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>بازدید های اخیر</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>ذخیره و یادداشت ها</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>مدیریت اعلانات</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>قوانین و مقررات</span>                    
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>حریم خصوصی</span>
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover:bg-gray-200 rounded cursor-pointer">
+                    <span>قوانین کپی رایت</span>
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+
+                <!-- خروج از حساب -->
+                <div class="border-t pt-4 mt-4">
+                    <div class="flex items-center justify-between p-2 hover:bg-red-100 text-red-600 rounded cursor-pointer">
+                    <span onclick="togglePopup('exit-confirm-popup', true)">خروج از حساب کاربری</span>
+                                        <img src="../assets/png/select22.png" class="h-5 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12 rounded shadow-sm bg-white p-1">
+                </div>
+            </div>
+        </div>
+        <!-- Add more chat items as needed -->
+        <!-- مودال تأیید خروج -->
+        <div id="exit-confirm-popup" class="fixed inset-x-0 bottom-0 z-50 bg-white border-t rounded-t-2xl shadow-lg max-w-2xl mx-auto p-6 transition-transform translate-y-full" style="transition: transform 0.3s;" dir="rtl">
+            <div class="flex flex-col gap-3 text-right">
+                <p class="text-center text-md">آیا مایل به خروج از حساب کاربری خود هستید؟</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <button onclick="togglePopup('exit-confirm-popup', false)" class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">خیر</button>
+                <button class="text-center text-gray-700 font-semibold px-4 py-2 focus:outline-none">بله</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+  <script src="../assets/js/main.js"></script>
+</footer>
+</html>

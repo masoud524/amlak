@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فیلتر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-3xl mx-auto p-4 space-y-4">
+        <div class="max-w-4xl mx-auto h-screen flex flex-col bg-gray-50 border rounded-xl shadow">
+            <!-- سربرگ -->
+            <div class="flex items-center justify-between bg-white p-4 border-b">
+              <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <div>
+                  <h2 class="text-lg font-semibold">فیلتر پیشرفته</h2>
+                </div>
+              </div>
+            </div>
+            <!-- فیلتر املاک -->
+            <div class="max-w-5xl p-6 bg-white rounded-2xl shadow-md space-y-6">
+
+            <!-- تعداد کل طبقات -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">تعداد کل طبقات</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 5">
+                </div>
+                <span class="text-red-700 text-sm">تذکر 0=همکف   -1=زیر زمین</span>
+            </div>
+
+
+            <!-- طبقه -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">شماره طبقه</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 3">
+                </div>
+            </div>
+
+            <!-- تعداد واحد در طبقه -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">تعداد واحد در طبقه</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 4">
+                </div>
+            </div>
+            <!-- ویژگی‌ها -->
+            <div>
+                <span class="text-gray-700">ویژگی‌ها</span>
+                <div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <button type="button" class="feature-btn flex items-center justify-center px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-blue-50 transition" data-feature="elevator">
+                        آسانسور
+                    </button>
+                    <button type="button" class="feature-btn flex items-center justify-center px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-blue-50 transition" data-feature="parking">
+                        پارکینگ
+                    </button>
+                    <button type="button" class="feature-btn flex items-center justify-center px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-blue-50 transition" data-feature="storage">
+                        انباری
+                    </button>
+                    <button type="button" class="feature-btn flex items-center justify-center px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-blue-50 transition" data-feature="balcony">
+                        بالکن
+                    </button>
+                </div>
+            </div>
+
+            <!-- نوع سند -->
+            <div>
+                <label class="block">
+                <span class="text-gray-700">نوع سند</span>
+                <select class="mt-1 block w-full border-gray-300 rounded-md shadow-sm py-2">
+                    <option>انتخاب نوع سند</option>
+                    <option>شخصی</option>
+                    <option>قولنامه‌ای</option>
+                    <option>تعاونی</option>
+                    <option>اوقافی</option>
+                </select>
+                </label>
+            </div>
+
+            <!-- تعداد اتاق -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">تعداد اتاق</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 4">
+                </div>
+            </div>
+
+            <!-- اجاره کوتاه مدت -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">اجاره کوتاه مدت</span><br>
+                <span class="text-gray-700 font-bold m-2">اجاره(تومان-هرشب)</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 30">
+                </div>
+            </div>
+
+            <!-- تعداد نفرات -->
+            <div class="block">
+                <span class="text-gray-700 font-bold">تعداد نفرات</span>
+                <div class="flex flex-col md:flex-row md:items-center gap-2 mt-2">
+                    <!-- فیلد از -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="از - مثلاً 1">
+                    <!-- متن تا -->
+                    <span class="text-gray-600 whitespace-nowrap">تا</span>
+                    <!-- فیلد تا -->
+                    <input type="number" class="w-full md:w-1/3 border border-gray-300 rounded-md shadow-sm py-2 px-3" placeholder="تا - مثلاً 6">
+                </div>
+            </div>
+
+            <!-- دکمه فیلتر -->
+            <div class="text-left pt-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 w-full rounded-md shadow">اعمال فیلتر</button>
+            </div>
+            </div>
+
+        </div>
+        <!-- Add more chat items as needed -->
+    </div>
+</body>
+<footer>
+    <script src="../assets/js/main.js"></script>
+</footer>
+</html>
